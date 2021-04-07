@@ -35,8 +35,8 @@ export class Post extends React.Component{
             <article>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8 col-md-10 mx-auto">
-                            {this.state.text}
+                        <div className="col-lg-8 col-md-10 mx-auto"
+                            dangerouslySetInnerHTML={{__html:this.state.text}}>
                         </div>
                     </div>
                 </div>

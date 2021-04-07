@@ -8,6 +8,9 @@ import {Route,BrowserRouter} from "react-router-dom";
 import {About} from "./components/About";
 import {Contact} from "./components/Contact";
 import {Post} from "./components/Post";
+import {AddPost} from "./admin/AddPost";
+import {ClientAuth} from "./admin/Auth";
+import {Admin} from "./admin/Admin";
 
 class App extends React.Component{
     constructor() {
@@ -32,6 +35,9 @@ class App extends React.Component{
                   <Route path="/about" render={()=><About changeH1={this.changeH1}/>} />
                   <Route path="/contact" render={()=><Contact changeH1={this.changeH1}/>} />
                   <Route path="/post/:id" render={(props)=><Post changeH1={this.changeH1} {...props}/>} />
+                  <Route path="/admin/add" render={()=><AddPost changeH1={this.changeH1}/>} />
+                  <Route path="/admin/auth" render={()=><ClientAuth changeH1={this.changeH1}/>} />
+                  <Route path="/admin" render={()=><Admin changeH1={this.changeH1}/>} />
                   <hr/>
                   <Footer/>
               </BrowserRouter>

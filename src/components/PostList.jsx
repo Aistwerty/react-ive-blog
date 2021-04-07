@@ -32,14 +32,17 @@ export class PostList extends React.Component{
             .then(response=>response.json())
             .then(result=>{
                 this.setState({
-                    posts: result.map(post=><PreviewPost
+                    posts: result.map(post=>{
+                        const parser = new DOMParser();
+                        const html = parser.parseFromString(post.text,'text/html');
+                        return <PreviewPost
                         key={post.id}
                         title= {post.title}
-                        text={post.text.slice(0,50)+"..."}
+                        text={html.body.innerText.slice(0,50)+"..."}
                         author={post.author}
                         data_added={post.data_added.slice(0,10)}
                         id={post.id}
-                    />)
+                    />})
                 });
             })
     }
